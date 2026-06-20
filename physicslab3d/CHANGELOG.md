@@ -1,32 +1,32 @@
 # Changelog
 
-Todas as mudanças notáveis deste projeto serão documentadas aqui.
+All notable changes to this project are documented in this file.
 
-O formato segue [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
-e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
 ## [1.0.0] - 2024-01-01
 
-### Adicionado
-- Módulo Lei de Ohm com simulação de circuito animado
-- Módulo Associação de Resistores (série e paralelo)
-- Módulo Circuitos Elétricos com lâmpadas e fluxo visual
-- Módulo Campo Elétrico 3D com Three.js
-- Módulo Interação Entre Cargas com vetores de força
-- Modo Sala de Aula para uso educacional
-- Servidor HTTP em Java puro
-- Interface tema escuro inspirada em laboratórios científicos
-- Cálculos físicos no backend Java
-- Layout responsivo
+### Added
+- Ohm's Law module with animated circuit simulation
+- Resistor Network module (series and parallel)
+- Electrical Circuits module with lamps and visual current flow
+- Electric Field 3D module using Three.js
+- Charge Interaction module with force vectors
+- Classroom Mode for educational use
+- HTTP server implemented in pure Java
+- Dark-themed interface inspired by scientific laboratories
+- Physics calculations handled in the Java backend
+- Responsive layout
 
 ---
 
-## [Não lançado]
+## [Unreleased]
 
-### Planejado
-- MRU e MRUV (Mecânica)
-- Queda Livre e Lançamento Oblíquo
-- Indução Eletromagnética
-- Campo Magnético
+### Planned
+- Uniform Motion and Uniformly Accelerated Motion (Kinematics)
+- Free Fall and Projectile Motion
+- Electromagnetic Induction
+- Magnetic Field
