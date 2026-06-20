@@ -1,49 +1,49 @@
-# Contribuindo com o PhysicsLab3D
+# Contributing to PhysicsLab3D
 
-Obrigado pelo interesse em contribuir! Este é um projeto educacional e toda ajuda é muito bem-vinda.
+Thank you for your interest in contributing. This is an educational project, and all contributions are welcome.
 
-## Como Contribuir
+## How to Contribute
 
-### Reportando Bugs
+### Reporting Bugs
 
-1. Verifique se o bug já foi reportado nas [Issues](../../issues)
-2. Abra uma nova issue com:
-   - Descrição clara do problema
-   - Passos para reproduzir
-   - Comportamento esperado vs. atual
-   - Capturas de tela (se aplicável)
+1. Check the [Issues](../../issues) page to confirm the bug has not already been reported.
+2. Open a new issue including:
+   - A clear description of the problem
+   - Steps to reproduce it
+   - Expected versus actual behavior
+   - Screenshots, if applicable
 
-### Sugerindo Funcionalidades
+### Suggesting Features
 
-1. Abra uma issue com a tag `enhancement`
-2. Descreva a funcionalidade e sua utilidade educacional
-3. Se possível, esboce como seria a visualização
+1. Open an issue tagged `enhancement`.
+2. Describe the feature and its educational value.
+3. If possible, outline how the visualization would work.
 
-### Enviando Código
+### Submitting Code
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua funcionalidade: `git checkout -b feature/nova-simulacao`
-3. Faça commit das suas mudanças: `git commit -m 'Add: simulação de indução'`
-4. Push para a branch: `git push origin feature/nova-simulacao`
-5. Abra um Pull Request
+1. Fork the repository.
+2. Create a branch for your feature: `git checkout -b feature/new-simulation`
+3. Commit your changes: `git commit -m 'Add: induction simulation'`
+4. Push the branch: `git push origin feature/new-simulation`
+5. Open a Pull Request.
 
-## Padrões de Código
+## Code Standards
 
-- Comentários em português
-- Variáveis e métodos em inglês (camelCase)
-- Classes em PascalCase
-- Código limpo e legível — sem complexidade desnecessária
-- Cada simulação em seu próprio arquivo
+- Comments in English
+- Variables and methods in camelCase
+- Classes in PascalCase
+- Clean, readable code — avoid unnecessary complexity
+- Each simulation contained in its own file
 
-## Tipos de Contribuição
+## Types of Contributions
 
-- 🔬 Novas simulações físicas
-- 🎨 Melhorias visuais
-- 📚 Conteúdo pedagógico
-- 🐛 Correção de bugs
-- 📖 Documentação
-- 🌍 Traduções
+- New physics simulations
+- Visual improvements
+- Educational content
+- Bug fixes
+- Documentation
+- Translations
 
-## Dúvidas?
+## Questions?
 
-Abra uma issue com a tag `question`. Responderei assim que possível.
+Open an issue tagged `question`. It will be addressed as soon as possible.
