@@ -1,0 +1,34 @@
+# Java compiled files
+*.class
+*.jar
+*.war
+*.ear
+out/
+build/
+target/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.project
+*.classpath
+*.settings/
+.metadata/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+*.env.local
+
+# Node (if any tooling is added later)
+node_modules/
+npm-debug.log*
