@@ -15,54 +15,60 @@
 
 ---
 
-## 📖 Sobre o Projeto
+# PhysicsLab3D – Virtual Electrodynamics Laboratory
 
-**PhysicsLab3D** é um laboratório virtual educacional desenvolvido com o objetivo de tornar conceitos de Eletrodinâmica mais acessíveis e compreensíveis. Através de simulações interativas em 3D, o projeto permite que estudantes e professores visualizem fenômenos elétricos que muitas vezes são difíceis de observar ou reproduzir em sala de aula.
-
-A proposta central é **aproximar teoria e prática** através da programação e visualização científica, transformando equações e conceitos abstratos em experiências visuais interativas.
+A virtual laboratory for visualizing electrodynamics concepts in three dimensions.
 
 ---
 
-## 💡 Motivação
+## Overview
 
-> *"Sou um estudante apaixonado por Física e tecnologia. Este projeto surgiu da vontade de transformar conceitos abstratos em experiências visuais interativas. Muitas demonstrações não podem ser facilmente realizadas em sala de aula, então a proposta é utilizar programação e visualização 3D para aproximar teoria e prática. A Física não precisa ser apenas equações no quadro — ela pode ser explorada, sentida e visualizada."*
+**PhysicsLab3D** is an educational virtual laboratory built to make electrodynamics concepts more accessible and easier to understand. Through interactive 3D simulations, the project allows students and educators to visualize electrical phenomena that are often difficult to observe or reproduce in a traditional classroom.
 
-A ideia nasceu da frustração de estudar fenômenos elétricos apenas através de fórmulas, sem uma forma visual de compreender o que realmente acontece. O campo elétrico ao redor de uma carga, o fluxo de elétrons em um circuito, a interação entre cargas — tudo isso ganha vida em 3D aqui.
-
----
-
-## ✨ Funcionalidades
-
-### ⚡ Módulos Disponíveis
-
-| Módulo | Descrição | Visualização 3D |
-|--------|-----------|-----------------|
-| **Lei de Ohm** | Simulação interativa de V = R × I | Circuito animado com fluxo de corrente |
-| **Associação de Resistores** | Série e paralelo com resistência equivalente | Diagrama de circuito dinâmico |
-| **Circuitos Elétricos** | Fonte, resistores e lâmpadas | Fluxo de corrente com brilho proporcional |
-| **Campo Elétrico 3D** | Visualização de linhas de campo e vetores | Renderização Three.js com cargas interativas |
-| **Interação Entre Cargas** | Atração e repulsão de cargas | Animação de forças vetoriais |
-
-### 🎓 Modo Sala de Aula
-
-Ative o **Modo Sala de Aula** para:
-- Explicações detalhadas de cada variável
-- Linguagem simplificada e didática
-- Aplicações do mundo real para cada conceito
-- Perfeito para uso em apresentações e aulas
+The core idea is to **bridge theory and practice** through programming and scientific visualization, turning abstract equations and concepts into interactive visual experiences.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Motivation
 
-- **Backend:** Java (servidor HTTP simples)
-- **Frontend:** HTML5, CSS3, JavaScript Vanilla
-- **Visualização 3D:** Three.js
-- **Sem frameworks:** Sem React, Angular, Spring Boot — apenas código limpo e direto
+Electrical phenomena are difficult to understand through formulas alone, with no visual reference for what is actually happening. The electric field around a charge, the flow of electrons through a circuit, the interaction between charges — all of this is brought to life here, in three dimensions.
+
+The project favors a small, transparent codebase over a feature-heavy framework stack. Every calculation that drives the visualizations is implemented explicitly in Java and can be read end to end.
 
 ---
 
-## 📁 Estrutura do Projeto
+## Features
+
+### Available Modules
+
+| Module | Description | 3D Visualization |
+|--------|-------------|-------------------|
+| **Ohm's Law** | Interactive simulation of V = R × I | Animated circuit with current flow |
+| **Resistor Networks** | Series and parallel with equivalent resistance | Dynamic circuit diagram |
+| **Electrical Circuits** | Source, resistors, and lamps | Current flow with proportional brightness |
+| **Electric Field 3D** | Visualization of field lines and vectors | Three.js rendering with interactive charges |
+| **Charge Interaction** | Attraction and repulsion between charges | Vector force animation |
+
+### Classroom Mode
+
+Enable **Classroom Mode** for:
+- Detailed explanations of each variable
+- Simplified, plain-language descriptions
+- Real-world applications for each concept
+- A format suited for lectures and presentations
+
+---
+
+## Technology Stack
+
+- **Backend:** Java (dependency-free HTTP server)
+- **Frontend:** HTML5, CSS3, vanilla JavaScript
+- **3D Rendering:** Three.js
+- **No frameworks:** No React, Angular, or Spring Boot — a small, direct codebase
+
+---
+
+## Project Structure
 
 ```
 physicslab3d/
@@ -71,31 +77,31 @@ physicslab3d/
 │       └── java/
 │           └── com/physicslab3d/
 │               ├── server/
-│               │   ├── HttpServer.java        # Servidor HTTP simples
-│               │   └── RequestHandler.java    # Roteamento de requisições
+│               │   ├── HttpServer.java        # HTTP server entry point
+│               │   └── RequestHandler.java    # Request routing
 │               ├── physics/
-│               │   ├── OhmLaw.java            # Cálculos da Lei de Ohm
-│               │   ├── ResistorCircuit.java   # Associação de resistores
-│               │   └── ElectricField.java     # Cálculos de campo elétrico
+│               │   ├── OhmLaw.java            # Ohm's Law calculations
+│               │   ├── ResistorCircuit.java   # Series/parallel resistor logic
+│               │   └── ElectricField.java     # Electric field calculations
 │               └── models/
-│                   ├── Resistor.java          # Modelo de resistor
-│                   └── Charge.java            # Modelo de carga elétrica
+│                   ├── Resistor.java          # Resistor model
+│                   └── Charge.java            # Electric charge model
 ├── frontend/
-│   ├── index.html                # Página principal
+│   ├── index.html                # Main page
 │   ├── css/
-│   │   └── style.css             # Estilos globais
+│   │   └── style.css             # Global styles
 │   └── js/
-│       ├── main.js               # Inicialização e navegação
+│       ├── main.js               # Initialization and navigation
 │       ├── modules/
-│       │   ├── api.js            # Comunicação com o backend
-│       │   ├── ui.js             # Componentes de interface
-│       │   └── classroomMode.js  # Modo Sala de Aula
+│       │   ├── api.js            # Backend communication layer
+│       │   ├── ui.js             # Shared UI components
+│       │   └── classroomMode.js  # Classroom Mode logic
 │       └── simulations/
-│           ├── ohmLaw.js         # Simulação Lei de Ohm
-│           ├── resistors.js      # Simulação de resistores
-│           ├── circuits.js       # Simulação de circuitos
-│           ├── electricField.js  # Simulação de campo elétrico 3D
-│           └── chargeInteraction.js # Interação entre cargas
+│           ├── ohmLaw.js         # Ohm's Law simulation
+│           ├── resistors.js      # Resistor network simulation
+│           ├── circuits.js       # Circuit simulation
+│           ├── electricField.js  # 3D electric field simulation
+│           └── chargeInteraction.js # Charge interaction simulation
 ├── README.md
 ├── LICENSE
 ├── .gitignore
@@ -105,88 +111,77 @@ physicslab3d/
 
 ---
 
-## 🚀 Como Executar
+## Getting Started
 
-### Pré-requisitos
+### Requirements
 
-- Java 17 ou superior
-- Navegador moderno (Chrome, Firefox, Edge)
+- JDK 17 or later
+- A modern browser (Chrome, Firefox, Edge)
 
-### Instalação
+### Installation
 
 ```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/physicslab3d.git
+# Clone the repository
+git clone https://github.com/your-username/physicslab3d.git
 
-# Entre no diretório
+# Move into the project directory
 cd physicslab3d
 
-# Compile o projeto
+# Compile the project
 javac -d out src/main/java/com/physicslab3d/**/*.java
 
-# Execute o servidor
+# Run the server
 java -cp out com.physicslab3d.server.HttpServer
 ```
 
-### Acesso
+### Access
 
-Abra o navegador em: **http://localhost:8080**
-
----
-
-## 📸 Capturas de Tela
-
-> *Em breve — simulações rodando*
-
-| Campo Elétrico 3D | Lei de Ohm | Circuitos |
-|:-----------------:|:----------:|:---------:|
-| `[screenshot]` | `[screenshot]` | `[screenshot]` |
+Open your browser at: **http://localhost:8080**
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
-### v1.0 (Atual)
-- [x] Lei de Ohm
-- [x] Associação de Resistores
-- [x] Circuitos Elétricos
-- [x] Campo Elétrico 3D
-- [x] Interação Entre Cargas
-- [x] Modo Sala de Aula
+### v1.0 (Current)
+- [x] Ohm's Law
+- [x] Resistor Networks
+- [x] Electrical Circuits
+- [x] Electric Field 3D
+- [x] Charge Interaction
+- [x] Classroom Mode
 
-### v2.0 (Mecânica)
-- [ ] MRU – Movimento Retilíneo Uniforme
-- [ ] MRUV – Movimento Retilíneo Uniformemente Variado
-- [ ] Queda Livre
-- [ ] Lançamento Oblíquo
+### v2.0 (Kinematics)
+- [ ] Uniform Motion
+- [ ] Uniformly Accelerated Motion
+- [ ] Free Fall
+- [ ] Projectile Motion
 
-### v3.0 (Eletromagnetismo Avançado)
-- [ ] Indução Eletromagnética
-- [ ] Lei de Faraday
-- [ ] Campo Magnético
-- [ ] Ondas Eletromagnéticas
-
----
-
-## 👨‍💻 Autor
-
-**Desenvolvido com ❤️ por um estudante apaixonado por Física e tecnologia.**
-
-Este projeto é parte de uma jornada de aprendizado que une programação, física e visualização científica. A ideia é simples: se um conceito é difícil de imaginar, vamos construir uma forma de vê-lo.
+### v3.0 (Advanced Electromagnetism)
+- [ ] Electromagnetic Induction
+- [ ] Faraday's Law
+- [ ] Magnetic Field
+- [ ] Electromagnetic Waves
 
 ---
 
-## 🤝 Contribuindo
+## Author
 
-Contribuições são muito bem-vindas! Veja [CONTRIBUTING.md](CONTRIBUTING.md) para detalhes.
+**Developed by Caio Pereira.**
+
+This project is part of a learning path connecting programming, physics, and scientific visualization. The premise is simple: if a concept is hard to imagine, build a way to see it.
+
+---
+
+## Contributing
+
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
-## 📄 Licença
+## License
 
-Distribuído sob a licença MIT. Veja [LICENSE](LICENSE) para mais informações.
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
----
 
 <div align="center">
   <sub>Feito com curiosidade científica e muitas linhas de código ⚡</sub>
