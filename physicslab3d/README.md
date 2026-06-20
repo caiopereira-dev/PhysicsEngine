@@ -1,7 +1,3 @@
-# ⚡ PhysicsLab3D – Laboratório Virtual de Eletrodinâmica
-
-<div align="center">
-
 ![PhysicsLab3D](https://img.shields.io/badge/PhysicsLab3D-v1.0.0-blue?style=for-the-badge)
 ![Java](https://img.shields.io/badge/Java-17+-orange?style=for-the-badge&logo=java)
 ![Three.js](https://img.shields.io/badge/Three.js-r128-green?style=for-the-badge)
