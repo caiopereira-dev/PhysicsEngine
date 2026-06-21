@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhysicsLab3D – Laboratório Virtual de Eletrodinâmica</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon"></span>
+        <span class="logo-text">Physics<span class="logo-accent">Lab3D</span></span>
+      </div>
+
+      <nav class="main-nav">
+        <button class="nav-btn active" data-module="ohm">Lei de Ohm</button>
+        <button class="nav-btn" data-module="resistors">Resistores</button>
+        <button class="nav-btn" data-module="circuits">Circuitos</button>
+        <button class="nav-btn" data-module="electric-field">Campo Elétrico</button>
+        <button class="nav-btn" data-module="charges">Interação de Cargas</button>
+      </nav>
+
+      <button class="classroom-btn" id="classroomToggle">Modo Sala de Aula</button>
+    </div>
+  </header>
+
+  <!-- CLASSROOM BANNER -->
+  <div class="classroom-banner hidden" id="classroomBanner">
+    <span class="classroom-icon"></span>
+    <span>Modo Sala de Aula <strong>ativado</strong> — explicações detalhadas habilitadas</span>
+    <button class="close-banner" id="closeBanner">×</button>
+  </div>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- MODULE: LEI DE OHM -->
+    <section class="module active" id="module-ohm">
+      <div class="module-header">
+        <h1 class="module-title">Lei de Ohm</h1>
+        <p class="module-subtitle">V = R × I</p>
+      </div>
+
+      <div class="module-layout">
+        <div class="canvas-panel">
+          <canvas id="canvas-ohm"></canvas>
+          <div class="canvas-label">Circuito animado</div>
+        </div>
+
+        <div class="control-panel">
+          <div class="formula-display">
+            <div class="formula-box">
+              <span class="formula-var" id="display-v">V<br><strong id="val-v">12.0</strong><small>Volts</small></span>
+              <span class="formula-eq">=</span>
+              <span class="formula-var" id="display-r">R<br><strong id="val-r">4.0</strong><small>Ω</small></span>
+              <span class="formula-eq">×</span>
+              <span class="formula-var" id="display-i">I<br><strong id="val-i">3.0</strong><small>A</small></span>
+            </div>
+            <div class="power-display">
+              Potência: <strong id="val-power">36.0</strong> W
+            </div>
+          </div>
+
+          <div class="controls-group">
+            <h3 class="controls-title">Parâmetros</h3>
+
+            <div class="control-row">
+              <label class="control-label">
+                <span class="var-symbol">V</span> Tensão (Volts)
+              </label>
+              <div class="input-row">
+                <input type="range" id="ohm-voltage" min="1" max="50" step="0.5" value="12" />
+                <input type="number" id="ohm-voltage-num" min="1" max="50" step="0.5" value="12" />
+              </div>
+            </div>
+
+            <div class="control-row">
+              <label class="control-label">
+                <span class="var-symbol">R</span> Resistência (Ω)
+              </label>
+              <div class="input-row">
+                <input type="range" id="ohm-resistance" min="1" max="100" step="1" value="4" />
+                <input type="number" id="ohm-resistance-num" min="1" max="100" step="1" value="4" />
+              </div>
+            </div>
+
+            <div class="control-row">
+              <label class="control-label">
+                <span class="var-symbol">I</span> Corrente (A) <span class="calc-badge">calculado</span>
+              </label>
+              <div class="result-display" id="ohm-current-display">3.0 A</div>
+            </div>
+          </div>
+
+          <div class="classroom-info hidden" id="ohm-classroom">
+            <h4>Entendendo a Lei de Ohm</h4>
+            <p><strong>Tensão (V)</strong> é como a "pressão" que empurra os elétrons no circuito. Pense nela como a pressão da água em um cano.</p>
+            <p><strong>Resistência (R)</strong> é a oposição ao fluxo de corrente — como a largura do cano. Quanto maior, mais difícil passa a corrente.</p>
+            <p><strong>Corrente (I)</strong> é a quantidade de elétrons que flui por segundo — como o volume de água que passa.</p>
+            <p class="classroom-example"><em>Aplicação real:</em> Um chuveiro elétrico funciona exatamente com esse princípio. A resistência do filamento aquece ao ser percorrida pela corrente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE: RESISTORES -->
+    <section class="module" id="module-resistors">
+      <div class="module-header">
+        <h1 class="module-title">Associação de Resistores</h1>
+        <p class="module-subtitle">Série e Paralelo</p>
+      </div>
+
+      <div class="module-layout">
+        <div class="canvas-panel">
+          <canvas id="canvas-resistors"></canvas>
+          <div class="canvas-label">Diagrama de circuito</div>
+        </div>
+
+        <div class="control-panel">
+          <div class="mode-selector">
+            <button class="mode-btn active" id="btn-series" data-mode="series">Série</button>
+            <button class="mode-btn" id="btn-parallel" data-mode="parallel">Paralelo</button>
+          </div>
+
+          <div class="result-cards">
+            <div class="result-card">
+              <div class="result-card-label">R. Equivalente</div>
+              <div class="result-card-value" id="res-equivalent">— Ω</div>
+            </div>
+            <div class="result-card">
+              <div class="result-card-label">Corrente Total</div>
+              <div class="result-card-value" id="res-current">— A</div>
+            </div>
+            <div class="result-card">
+              <div class="result-card-label">Potência</div>
+              <div class="result-card-value" id="res-power">— W</div>
+            </div>
+          </div>
+
+          <div class="controls-group">
+            <div class="control-row">
+              <label class="control-label"><span class="var-symbol">V</span> Tensão da Fonte</label>
+              <div class="input-row">
+                <input type="range" id="res-voltage" min="1" max="50" step="1" value="12" />
+                <input type="number" id="res-voltage-num" value="12" min="1" max="50" />
+              </div>
+            </div>
+          </div>
+
+          <div class="resistor-list" id="resistor-list"></div>
+
+          <div class="btn-row">
+            <button class="action-btn" id="add-resistor-btn">Adicionar resistor</button>
+          </div>
+
+          <div class="classroom-info hidden" id="resistors-classroom">
+            <h4>Série vs. Paralelo</h4>
+            <p><strong>Série:</strong> Os resistores são ligados um após o outro — todos recebem a mesma corrente. A resistência total é a soma de todas.</p>
+            <p><strong>Paralelo:</strong> Os resistores têm as duas extremidades conectadas juntas — todos recebem a mesma tensão. A resistência total é sempre menor do que o menor resistor.</p>
+            <p class="classroom-example"><em>Aplicação real:</em> As tomadas da sua casa estão em paralelo — cada aparelho recebe 127 V independentemente dos outros.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE: CIRCUITOS -->
+    <section class="module" id="module-circuits">
+      <div class="module-header">
+        <h1 class="module-title">Circuitos Elétricos</h1>
+        <p class="module-subtitle">Fluxo de corrente e lâmpadas</p>
+      </div>
+
+      <div class="module-layout">
+        <div class="canvas-panel large-canvas">
+          <canvas id="canvas-circuits"></canvas>
+          <div class="canvas-label">Circuito com animação de corrente</div>
+        </div>
+
+        <div class="control-panel">
+          <div class="result-cards">
+            <div class="result-card">
+              <div class="result-card-label">Tensão</div>
+              <div class="result-card-value" id="cir-voltage-display">12 V</div>
+            </div>
+            <div class="result-card">
+              <div class="result-card-label">Corrente</div>
+              <div class="result-card-value" id="cir-current-display">— A</div>
+            </div>
+            <div class="result-card">
+              <div class="result-card-label">Brilho</div>
+              <div class="result-card-value" id="cir-brightness">— %</div>
+            </div>
+          </div>
+
+          <div class="controls-group">
+            <div class="control-row">
+              <label class="control-label"><span class="var-symbol">V</span> Tensão da Fonte</label>
+              <div class="input-row">
+                <input type="range" id="cir-voltage" min="1" max="50" step="1" value="12" />
+                <input type="number" id="cir-voltage-num" value="12" min="1" max="50" />
+              </div>
+            </div>
+
+            <div class="control-row">
+              <label class="control-label"><span class="var-symbol">R</span> Resistência Total</label>
+              <div class="input-row">
+                <input type="range" id="cir-resistance" min="1" max="100" step="1" value="10" />
+                <input type="number" id="cir-resistance-num" value="10" min="1" max="100" />
+              </div>
+            </div>
+          </div>
+
+          <div class="lamp-indicator">
+            <div class="lamp-bulb" id="lamp-bulb"></div>
+            <div class="lamp-label">Intensidade da lâmpada</div>
+            <div class="lamp-bar">
+              <div class="lamp-fill" id="lamp-fill"></div>
+            </div>
+          </div>
+
+          <div class="classroom-info hidden" id="circuits-classroom">
+            <h4>Circuitos Elétricos</h4>
+            <p>Um circuito elétrico precisa de: <strong>fonte</strong> (que fornece energia), <strong>condutores</strong> (fios) e <strong>receptores</strong> (resistores, lâmpadas).</p>
+            <p>O brilho da lâmpada é proporcional à potência dissipada: <strong>P = V × I</strong>. Mais corrente = mais calor = mais luz.</p>
+            <p class="classroom-example"><em>Aplicação real:</em> Um dimmer regula o brilho das lâmpadas controlando a tensão ou resistência do circuito.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE: CAMPO ELÉTRICO 3D -->
+    <section class="module" id="module-electric-field">
+      <div class="module-header">
+        <h1 class="module-title">Campo Elétrico 3D</h1>
+        <p class="module-subtitle">E = k × |q| / r²</p>
+      </div>
+
+      <div class="module-layout">
+        <div class="canvas-panel large-canvas">
+          <canvas id="canvas-field"></canvas>
+          <div class="canvas-label">Visualização 3D — arraste para girar</div>
+        </div>
+
+        <div class="control-panel">
+          <div class="controls-group">
+            <h3 class="controls-title">Adicionar Carga</h3>
+
+            <div class="charge-type-selector">
+              <button class="charge-btn positive active" id="btn-positive">+ Positiva</button>
+              <button class="charge-btn negative" id="btn-negative">− Negativa</button>
+            </div>
+
+            <div class="control-row">
+              <label class="control-label">Magnitude (nC)</label>
+              <div class="input-row">
+                <input type="range" id="charge-magnitude" min="1" max="20" step="1" value="5" />
+                <input type="number" id="charge-magnitude-num" value="5" min="1" max="20" />
+              </div>
+            </div>
+
+            <div class="btn-row">
+              <button class="action-btn" id="add-charge-btn">Adicionar carga</button>
+              <button class="action-btn danger" id="clear-charges-btn">Limpar</button>
+            </div>
+          </div>
+
+          <div class="charge-list" id="charge-list"></div>
+
+          <div class="field-info">
+            <div class="result-card">
+              <div class="result-card-label">Campo no ponto selecionado</div>
+              <div class="result-card-value" id="field-intensity">— N/C</div>
+            </div>
+          </div>
+
+          <div class="view-controls">
+            <label><input type="checkbox" id="show-field-lines" checked /> Linhas de Campo</label>
+            <label><input type="checkbox" id="show-vectors" checked /> Vetores</label>
+            <label><input type="checkbox" id="show-grid" /> Grade de Referência</label>
+          </div>
+
+          <div class="classroom-info hidden" id="field-classroom">
+            <h4>Campo Elétrico</h4>
+            <p>O campo elétrico representa a força por unidade de carga em cada ponto do espaço. É como um "mapa de influência" ao redor de uma carga.</p>
+            <p><strong>Linhas de campo</strong> saem das cargas positivas e entram nas negativas. Quanto mais próximas as linhas, mais intenso o campo.</p>
+            <p class="classroom-example"><em>Aplicação real:</em> Raios e trovões são descargas elétricas causadas por diferenças de campo elétrico entre nuvens e solo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE: INTERAÇÃO ENTRE CARGAS -->
+    <section class="module" id="module-charges">
+      <div class="module-header">
+        <h1 class="module-title">Interação Entre Cargas</h1>
+        <p class="module-subtitle">F = k × |q₁ × q₂| / r²</p>
+      </div>
+
+      <div class="module-layout">
+        <div class="canvas-panel large-canvas">
+          <canvas id="canvas-charges"></canvas>
+          <div class="canvas-label">Forças de atração e repulsão</div>
+        </div>
+
+        <div class="control-panel">
+          <div class="controls-group">
+            <h3 class="controls-title">Carga 1</h3>
+            <div class="charge-type-selector">
+              <button class="charge-btn positive active" id="q1-positive">+ Positiva</button>
+              <button class="charge-btn negative" id="q1-negative">− Negativa</button>
+            </div>
+            <div class="control-row">
+              <label class="control-label">Magnitude (nC)</label>
+              <div class="input-row">
+                <input type="range" id="q1-magnitude" min="1" max="20" step="1" value="5" />
+                <input type="number" id="q1-magnitude-num" value="5" min="1" max="20" />
+              </div>
+            </div>
+          </div>
+
+          <div class="controls-group">
+            <h3 class="controls-title">Carga 2</h3>
+            <div class="charge-type-selector">
+              <button class="charge-btn positive" id="q2-positive">+ Positiva</button>
+              <button class="charge-btn negative active" id="q2-negative">− Negativa</button>
+            </div>
+            <div class="control-row">
+              <label class="control-label">Magnitude (nC)</label>
+              <div class="input-row">
+                <input type="range" id="q2-magnitude" min="1" max="20" step="1" value="5" />
+                <input type="number" id="q2-magnitude-num" value="5" min="1" max="20" />
+              </div>
+            </div>
+          </div>
+
+          <div class="controls-group">
+            <div class="control-row">
+              <label class="control-label">Distância (m)</label>
+              <div class="input-row">
+                <input type="range" id="charge-distance" min="0.1" max="3" step="0.1" value="1" />
+                <input type="number" id="charge-distance-num" value="1" min="0.1" max="3" step="0.1" />
+              </div>
+            </div>
+          </div>
+
+          <div class="result-cards">
+            <div class="result-card highlight" id="force-card">
+              <div class="result-card-label">Força de Coulomb</div>
+              <div class="result-card-value" id="charge-force">— N</div>
+            </div>
+            <div class="result-card" id="interaction-card">
+              <div class="result-card-label">Tipo de Interação</div>
+              <div class="result-card-value" id="interaction-type">—</div>
+            </div>
+          </div>
+
+          <div class="classroom-info hidden" id="charges-classroom">
+            <h4>Lei de Coulomb</h4>
+            <p>Cargas de <strong>mesmo sinal se repelem</strong>; cargas de <strong>sinais opostos se atraem</strong>. Isso explica por que átomos se mantêm unidos — núcleo positivo atrai elétrons negativos.</p>
+            <p>A força diminui com o <strong>quadrado da distância</strong>. Se dobrar a distância, a força cai 4 vezes.</p>
+            <p class="classroom-example"><em>Aplicação real:</em> Balões "grudam" na parede porque ao esfregar ganham carga elétrica que atrai a parede neutra.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>
+      <strong>PhysicsLab3D</strong> — Laboratório virtual de eletrodinâmica.
+      <a href="https://github.com/seu-usuario/physicslab3d" target="_blank" rel="noopener">Ver no GitHub</a>
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/modules/physics.js"></script>
+  <script src="js/modules/ui.js"></script>
+  <script src="js/modules/classroomMode.js"></script>
+  <script src="js/simulations/ohmLaw.js"></script>
+  <script src="js/simulations/resistors.js"></script>
+  <script src="js/simulations/circuits.js"></script>
+  <script src="js/simulations/electricField.js"></script>
+  <script src="js/simulations/chargeInteraction.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

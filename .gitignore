@@ -1,0 +1,31 @@
+# ── IDE / Editores ──────────────────────────────────────────
+.idea/
+*.iml
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── Sistema Operacional ─────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs ─────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Variáveis de ambiente ───────────────────────────────────
+.env
+*.env.local
+
+# ── Node (caso alguma ferramenta de build/lint seja adicionada) ──
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# ── Arquivos temporários ─────────────────────────────────────
+*.tmp
+*.bak
