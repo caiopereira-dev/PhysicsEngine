@@ -3,7 +3,7 @@
 ![Three.js](https://img.shields.io/badge/Three.js-r128-green?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
-**Laboratório virtual educacional para visualização interativa de fenômenos elétricos em 3D**
+**3D Virtual Lab for Eletrodinamic Simulation**
 
 [Demonstração](#) · [Reportar Bug](issues) · [Sugerir Funcionalidade](issues)
 
