@@ -180,5 +180,5 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
 
 <div align="center">
-  <sub>Feito com curiosidade científica e muitas linhas de código ⚡</sub>
+  <sub>Made with real learning and curiosity</sub>
 </div>
